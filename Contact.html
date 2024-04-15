@@ -2,19 +2,6 @@
     <head>
         <title>Homepage</title>
         <link rel="stylesheet" href="Style_Sheet.css">
-        <script>
-            function includeNavbar() {
-                fetch('Nav_bar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-container').innerHTML = data;
-                })
-                .catch(error => console.error('Error fetching navbar:', error));
-            }
-
-            // Call the function when the page loads
-            window.onload = includeNavbar;
-        </script>
     </head>
 
     <body>
