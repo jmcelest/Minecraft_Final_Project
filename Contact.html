@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Homepage</title>
+        <link rel="stylesheet" href="Style_Sheet.css">
+        <script>
+            function includeNavbar() {
+                fetch('Nav_bar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                })
+                .catch(error => console.error('Error fetching navbar:', error));
+            }
+
+            // Call the function when the page loads
+            window.onload = includeNavbar;
+        </script>
+    </head>
+
+    <body>
+        <!-- Container for Navbar -->
+        <div id="navbar-container"></div>
+        
+        <div class="main-container">
+            <div id="main-content">
+                <div class="container">
+                <form name="contactForm" method= "get" action="Contact_Submitted.html">
+                    <!-- Name Field -->
+                    <div class="contact">
+                        <label for="Name">Name/Alias: </label>
+                        <input type="text" id="Name" placeholder="Jane Doe" required>
+                    </div>
+                    
+                    <!-- Email Address -->
+                    <div class="contact">
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" placeholder="directoryid@umd.edu" required>
+                    </div>    
+
+                    <!-- Big Text Box-->
+                    <br><br>
+                    <label for="message">Reason for contact:</label><br>
+                    <textarea id="message" type="text" name="message" rows="4" cols="50"></textarea>
+                        <script type="text/javascript">
+                            function validate() {
+                                var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                                if (document.contactForm.message.value === "") {
+                                    alert('No reason given.');
+                                    return false;
+                                } else 
+                                window.location.href = 'Contact_Submitted.html';
+                                return false;;
+                            }
+                        </script>
+                    <br><br>
+                    <!-- Submit Button -->
+                    <button style="border: 2px black solid;" onclick="return validate()">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Container for Navbar -->
+        <div id="footer-container"></div>
+
+        <!-- Include the JavaScript file -->
+        <script src="script.js"></script>
+    </body>
+</html>

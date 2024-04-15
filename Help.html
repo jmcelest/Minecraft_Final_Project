@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="Style_Sheet.css">
+    <script>
+        function includeNavbar() {
+            fetch('Nav_bar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error fetching navbar:', error));
+        }
+
+        // Call the function when the page loads
+        window.onload = includeNavbar;
+    </script>
+</head>
+<body>
+    <!-- Container for Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div id="main-content">                
+            <h2>SEARCH FAQs HERE</h2>
+            <div class="container"> 
+                <!-- left justified -->
+                <h2>FAQs</h2>
+                    <b>Q1</b>
+                    <p>text</p>    
+                    <b>Q2</b>
+                    <p>text</p>   
+                    <b>Q3</b>
+                    <p>text</p>   
+                    <b>Q4</b>
+                    <p>text</p>   
+                    <b>Q5</b>
+                    <p>text</p>            
+            </div>
+
+            <div class="container"> 
+                <!-- right justified container 1 -->
+                <h2>HELPFUL TIPS</h2>
+                <ul>
+                    <li>Check for errors (i.e. spelling errors of server names, etc.</li>
+                    <li>Make sure server is not outdated</li>
+                    <li>Make sure server status is Active</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+
+            <div class="container"> 
+                <!-- right justified container 2 -->
+                <h2>OUTDATED SERVERS</h2>
+                <ul>    
+                    <li>Server: #</li>
+                    <li>Server: #</li>
+                    <li>Server: #</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Container for Navbar -->
+    <div id="footer-container"></div>
+
+    <!-- Include the JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</ht

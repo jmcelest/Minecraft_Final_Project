@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="Style_Sheet.css">
+    <style>
+        .search-and-filter {
+            display: flex;
+            justify-content: flex-end; /* Right justify the content */
+            margin-bottom: 10px; /* Add space below the form and button */
+        }
+        .expanded {
+            width: 400px; /* Adjust as needed */
+        }
+    </style>
+    <script>
+        function includeNavbar() {
+            fetch('Nav_bar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error fetching navbar:', error));
+        }
+
+        // Call the function when the page loads
+        window.onload = includeNavbar;
+
+        // Function to expand the input field dynamically
+        function expandInput(input) {
+            if (input.value.length > 20) { // Adjust as needed
+                input.classList.add('expanded');
+            } else {
+                input.classList.remove('expanded');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Container for Navbar -->
+    <div id="navbar-container"></div>
+    <div class="search-and-filter">
+        <form>
+            <input type="text" id="search_input" oninput="expandInput(this)">
+            <input type="submit" value="Search Server Name">
+            <button>Filters</button>
+        </form>            
+    </div>
+
+    <div id="server1" class="container"></div>
+    <div id="server2" class="container"></div>
+    <div id="server3" class="container"></div>
+    <div id="server4" class="container"></div>
+    <div id="server5" class="container"></div>
+
+    
+    <!-- Container for Navbar -->
+    <div id="footer-container"></div>
+
+    <!-- Include the JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

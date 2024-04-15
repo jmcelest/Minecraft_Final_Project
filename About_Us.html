@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>Minecraft</title>
+    <link rel="stylesheet" href="Style_Sheet.css">
+    <script>
+        function includeNavbar() {
+            fetch('Nav_bar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error fetching navbar:', error));
+        }
+
+        // Call the function when the page loads
+        window.onload = includeNavbar;
+    </script>
+</head>
+<body>
+    <!-- Container for Navbar -->
+    <div id="navbar-container"></div>
+    
+    <!-- Main Content -->
+    <div class="main-container">
+        <div id="main-content">
+            <h1>ABOUT US</h1>
+            <div class="container">
+                <!-- Container 1 content goes here -->                
+                <h2>WHO ARE WE</h2>
+                <ul>
+                    <li>Group of college students</li>
+                    <li>Information Science Majors</li>
+                    <li>Programmers</li>
+                </ul>
+            </div>
+            
+            <div class="container">
+                <!-- Container 2 content goes here -->
+                <h2>WHAT IS OUR GOAL</h2>
+                <ul>
+                    <li>Create a "one step for minecraft server status</li>
+                    <li>Also update users on minecraft info/updates</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container for Navbar -->
+    <div id="footer-container"></div>
+
+    <!-- Include the JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

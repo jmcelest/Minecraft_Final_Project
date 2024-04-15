@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Form Submitted</title>
+        <link rel="stylesheet" href="Style_Sheet.css">
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header id="headfoot">
+            <h1>Your Form has Been Submitted Successfully :)</h1>
+        </header>
+
+        <h2 style="text-align: center;">Thank you for submitting a contact request, we will reach out soon.</h2>
+        <h2 style="text-align: center;">You will be redirected to the Homepage within the next 10 seconds</h2>
+        <!-- HomePage redirect button -->
+        <button style="border: 2px solid black;" id="homepageButton">
+            <img class="small-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Home-icon.svg/120px-Home-icon.svg.png" alt="HomePage Icon">
+        </button>
+        
+        <script>
+            document.getElementById("homepageButton").onclick = function() {
+                window.location.href = "Home.html";
+            };
+        </script>
+
+        <script type="text/javascript">
+            function redirectAfter5Seconds() {
+                setTimeout(function() {
+                    window.location.href = 'Contact.html';
+                }, 5000); // 5000 milliseconds = 5 seconds
+            }
+
+            redirectAfter5Seconds();
+        </script>
+    </body>
+</html>
