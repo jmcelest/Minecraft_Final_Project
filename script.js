@@ -32,8 +32,14 @@ function getServerStatus(server, element) {
 }
 
 function getServerInfo() {
-    getServerStatus("mc.hypixel.net", "firstServer");
-    getServerStatus("play.aesthetiful.com", "secondServer");
+    let servers = fetch("https://inst-377-group27.vercel.app/servers")
+    .then((res) => res.json())
+    .then((res) => {
+        console.log(res);
+        for (let i = 0; i < res.length; i++) {
+            getServerStatus(res[i].ip_address, res[i].id);
+        }
+    });
 }
 
 // Call the functions when the page loads
