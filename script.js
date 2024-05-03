@@ -32,13 +32,14 @@ function getServerStatus(server, element) {
 }
 
 function getServerInfo() {
-    getServerStatus("mc.hypixel.net", "firstServer");
-    getServerStatus("play.aesthetiful.com", "secondServer");
-    getServerStatus("mcsl.cosmosmc.org", "thirdServer")
-    getServerStatus("mcsugars.com", "fourthServer")
-    getServerStatus("mc.jahcraft.net", "fifthServer")
+    getServerStatus("mc.hypixel.net", "1");
+    getServerStatus("play.aesthetiful.com", "2");
+    getServerStatus("mcsl.cosmosmc.org", "3")
+    getServerStatus("mcsugars.com", "4")
+    getServerStatus("mc.jahcraft.net", "5")
 }
 
+/*
 function getServerInfo() {
     let servers = fetch("https://inst-377-group27.vercel.app/servers")
     .then((res) => res.json())
@@ -48,6 +49,7 @@ function getServerInfo() {
         }
     });
 }
+*/
 
 window.onload = function() {
     includeNavbar();
