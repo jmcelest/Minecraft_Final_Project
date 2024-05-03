@@ -50,7 +50,6 @@ function getServerInfo() {
     });
 }
 
-// Call the functions when the page loads
 window.onload = function() {
     includeNavbar();
     includeFooter();
