@@ -43,7 +43,6 @@ function getServerInfo() {
     let servers = fetch("https://inst-377-group27.vercel.app/servers")
     .then((res) => res.json())
     .then((res) => {
-        console.log(res);
         for (let i = 0; i < res.length; i++) {
             getServerStatus(res[i].ip_address, res[i].id);
         }
