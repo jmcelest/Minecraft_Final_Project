@@ -32,6 +32,14 @@ function getServerStatus(server, element) {
 }
 
 function getServerInfo() {
+    getServerStatus("mc.hypixel.net", "firstServer");
+    getServerStatus("play.aesthetiful.com", "secondServer");
+    getServerStatus("mcsl.cosmosmc.org", "thirdServer")
+    getServerStatus("mcsugars.com", "fourthServer")
+    getServerStatus("mc.jahcraft.net", "fifthServer")
+}
+
+function getServerInfo() {
     let servers = fetch("https://inst-377-group27.vercel.app/servers")
     .then((res) => res.json())
     .then((res) => {
