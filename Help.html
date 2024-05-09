@@ -13,12 +13,11 @@
             .catch(error => console.error('Error fetching navbar:', error));
         }
 
-        // Call the function when the page loads
         window.onload = includeNavbar;
     </script>
 </head>
 <body>
-    <!-- Container for Navbar -->
+    <!-- Navbar -->
     <div id="navbar-container"></div>
 
     <!-- Main Content -->
@@ -26,7 +25,6 @@
         <div id="main-content">                
             <h2>SEARCH F.A.Q.s HERE</h2>
             <div class="container"> 
-                <!-- left justified -->
                 <h2>F.A.Q.s</h2>
                     <b>Q1: Im having connection issues, what should I do?</b>
                     <p>If you're experiencing connection issues or encountering errors while trying to join the server, 
@@ -54,34 +52,32 @@
             </div>
 
             <div class="container"> 
-                <!-- right justified container 1 -->
                 <h2>HELPFUL TIPS</h2>
                 <ul>
-                    <li>Check for errors (i.e. spelling errors of server names, etc.</li>
+                    <li>Check for spelling errors.</li>
                     <li>Make sure server is not outdated</li>
-                    <li>Make sure server status is Active</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>Make sure server status is Active and Online.</li>
+                    <li>Check if the server is currently under maintenance.</li>
                 </ul>
             </div>
 
             <div class="container"> 
-                <!-- right justified container 2 -->
                 <h2>OUTDATED SERVERS</h2>
+                <h3>These servers are no longer supported on the current version of Minecraft.</h3>
+                <h3>Change your version to play on the following servers: </h3>
                 <ul>    
-                    <li>Server: #</li>
-                    <li>Server: #</li>
-                    <li>Server: #</li>
+                    <li>Server: Anime SMP, Version: 1.7.1</li>
+                    <li>Server: Arago, Version: 1.7.1</li>
+                    <li>Server: PlayPixel, Version 1.8.3</li>
                 </ul>
             </div>
         </div>
     </div>
     
-    <!-- Container for Navbar -->
+    <!-- Navbar -->
     <div id="footer-container"></div>
 
-    <!-- Include the JavaScript file -->
+    <!-- JavaScript file -->
     <script src="script.js"></script>
 
 </body>
