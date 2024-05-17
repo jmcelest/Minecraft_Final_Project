@@ -1,0 +1,17 @@
+{
+  "name": "inst377_group27",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -e '*'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.42.7",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  }
+}
