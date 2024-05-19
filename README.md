@@ -20,87 +20,37 @@ This manual provides the necessary information for future developers to set up, 
 
 
 2. Installation
+In order to be able to run everything smoothly, you would need to have both node.js and npm installed on the system. Here is a detailed explanation below: 
 
-
-System Requirements
-
-
+System Requirements:
         •        Node.js (version 14.x or higher)
-
         •        npm (version 6.x or higher)
 
-
-Step-by-Step Installation Guide
-
-
+Step-by-Step Installation Guide:
+        You need to either download or clone the respository using a command prompt. 
+        For example, you can use something like this:
         1.        Cloning the Repository
+                "git clone <repository_url>,
+                cd <repository_directory>" 
+
+        2.        Installing Dependencies and Running the Application
+                Then you need to install the dependency which is npm. It is recommendded that you install it in the root folder of the files.
+                you use this code in the command prompt: "npm install"
+                You can then run the server by typing "npm start" or opening the application manually.
+                You cana access the application by opening any browser and typing "http://localhost:3000"
+                At the moment there are not tests to run in order to see if the application is working other than opening the server status page. 
 
 
-git clone <repository_url>
-
-cd <repository_directory>
-
-
-
-        2.        Installing Dependencies
-
-Ensure you are in the root directory of the project, then run:
-
-
-npm install
-
-
-
-
-3. Running the Application
-
-
-Starting the Server
-
-
-        1.        Start the application using the command:
-
-
-npm start
-
-
-
-        2.        Accessing the Application
-
-Open a web browser and navigate to:
-
-
-http://localhost:3000
-
-
-
-
-4. Testing the Application
-
-
-Running Tests
-
-Currently, no specific tests have been written for this application. Future developers are encouraged to implement tests using a framework like Mocha or Jest.
-
-
-5. API Documentation
-
-
+3. API Documentation
 Overview
 
 The backend API is developed using Express and interacts with Supabase to manage server data.
 
 
 GET Endpoints
-
-
         •        /servers
-
         •        Description: Fetches the list of all Minecraft servers and their statuses.
-
         •        Response:
-
-
 [
 
   {
@@ -121,17 +71,10 @@ GET Endpoints
 
 
 
-
 POST Endpoints
-
-
         •        /server
-
         •        Description: Adds a new server to the database.
-
         •        Request Body:
-
-
 {
 
   "ip_address": "new.server.ip",
@@ -139,17 +82,10 @@ POST Endpoints
   "server_name": "New Server",
 
   "country": "US"
-
 }
 
-
-        •        
-
-        •        Response:
-
-
+Response:
 {
-
   "id": 2,
 
   "ip_address": "new.server.ip",
@@ -157,32 +93,19 @@ POST Endpoints
   "server_name": "New Server",
 
   "country": "US"
-
 }
 
 
 
 
 Example Requests and Responses
-
-
         •        GET /servers
 
-
 curl -X GET http://localhost:3000/servers
-
-
-
         •        POST /server
-
-
 curl -X POST http://localhost:3000/server -H "Content-Type: application/json" -d '{"ip_address":"new.server.ip","server_name":"New Server","country":"US"}'
 
-
-
-
-6. Using the Minecraft API and Webpage Descriptions
-
+4. Using the Minecraft API and Webpage Descriptions
 
 Minecraft API Integration
 
@@ -268,8 +191,7 @@ Nav_bar.html:
         •        Provides a navigation bar for easy access to different sections of the website.
 
 
-7. Known Bugs
-
+5. Known Bugs
 
 Current Issues
 
@@ -279,7 +201,7 @@ Current Issues
         2.        Server status might show outdated information if API data is cached.
 
 
-8. Additional Notes
+6. Additional Notes
 
 
 File Structure
