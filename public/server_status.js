@@ -27,38 +27,38 @@ function getServerInfo() {
     .then((res) => res.json())
     .then((res) => {
         for (let i = 0; i < res.length; i++) {
-            if (Boolean(checkValidation(res[i].ip_address))) {
-                var div = document.createElement("div");
-                div.setAttribute("id", `server${res[i].id}`);
-                div.setAttribute("class", "container");
-                document.getElementById("server-container").appendChild(div);
+            var div = document.createElement("div");
+            div.setAttribute("id", `server${res[i].id}`);
+            div.setAttribute("class", "container");
+            document.getElementById("server-container").appendChild(div);
 
-                var h1 = document.createElement('h1');
-                h1.setAttribute("id", res[i].id);
-                h1.innerHTML = `Server Status for ${res[i].server_name}: `;
-                div.appendChild(h1);
-                getServerStatus(res[i].ip_address, res[i].id);
-            }
+            var h1 = document.createElement('h1');
+            h1.setAttribute("id", res[i].id);
+            h1.innerHTML = `Server Status for ${res[i].server_name}: `;
+            div.appendChild(h1);
+            getServerStatus(res[i].ip_address, res[i].id);
         }
     });
 }
 
 async function createServer() {
-    await fetch("https://minecraft-final-project.vercel.app/server", {
-        method: 'POST',
-        body: JSON.stringify({
-            "server_name": `${document.getElementById("serverName").value}`,
-            "ip_address": `${document.getElementById("ipAddress").value}`,
-            "country": `${document.getElementById("region").value}`,
-        }),
-        headers: {
-            "Content-type": "application/json"
-        }
-    })
-    .then((res) => res.json())
-    .then((res) => {
-        
-    })
+    if (Boolean(checkValidation(document.getElementById("ipAddress").value))) {
+        await fetch("https://minecraft-final-project.vercel.app/server", {
+            method: 'POST',
+            body: JSON.stringify({
+                "server_name": `${document.getElementById("serverName").value}`,
+                "ip_address": `${document.getElementById("ipAddress").value}`,
+                "country": `${document.getElementById("region").value}`,
+            }),
+            headers: {
+                "Content-type": "application/json"
+            }
+        })
+        .then((res) => res.json())
+        .then((res) => {
+            
+        })
+    }
 }
 
 window.onload = getServerInfo();
