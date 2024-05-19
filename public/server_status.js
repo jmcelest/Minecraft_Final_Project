@@ -26,7 +26,6 @@ function getServerInfo() {
     fetch("https://minecraft-final-project.vercel.app/servers")
     .then((res) => res.json())
     .then((res) => {
-        var count = 0;
         for (let i = 0; i < res.length; i++) {
             if (Boolean(checkValidation(res[i].ip_address))) {
                 var div = document.createElement("div");
@@ -39,9 +38,7 @@ function getServerInfo() {
                 h1.innerHTML = `Server Status for ${res[i].server_name}: `;
                 div.appendChild(h1);
                 getServerStatus(res[i].ip_address, res[i].id);
-                count += 1;
             }
-            if (count == 10) break;
         }
     });
 }
