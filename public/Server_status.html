@@ -13,18 +13,6 @@
         }
     </style>
     <script>
-        function includeNavbar() {
-            fetch('Nav_bar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-            })
-            .catch(error => console.error('Error fetching navbar:', error));
-        }
-
-        // Call the function when the page loads
-        window.onload = includeNavbar;
-
         // Function to expand the input field dynamically
         function expandInput(input) {
             if (input.value.length > 20) { // Adjust as needed

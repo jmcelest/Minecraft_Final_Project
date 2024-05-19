@@ -12,7 +12,7 @@ function getServerStatus(server, element) {
 }
 
 async function getServerInfo() {
-    let servers = await fetch("http://localhost:3000/servers")
+    let servers = await fetch('http://localhost:3000/servers')
     .then((res) => res.json())
     .then((res) => {
         for (let i = 0; i < res.length; i++) {
