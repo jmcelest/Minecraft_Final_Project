@@ -11,8 +11,11 @@ function getServerStatus(server, element) {
     });
 }
 
+var host = window.location.origin;
+console.log(host)
+
 async function getServerInfo() {
-    let servers = await fetch('http://localhost:3000/servers')
+    let servers = await fetch(`${host}/servers`)
     .then((res) => res.json())
     .then((res) => {
         for (let i = 0; i < res.length; i++) {
