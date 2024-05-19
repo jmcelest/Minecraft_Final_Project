@@ -42,7 +42,7 @@ function getServerInfo() {
 }
 
 async function createServer() {
-    console.log(document.getElementById("ipAddress").value);
+    console.log(Boolean(checkValidation(document.getElementById("ipAddress").value)));
     if (Boolean(checkValidation(document.getElementById("ipAddress").value))) {
         await fetch("https://minecraft-final-project.vercel.app/server", {
             method: 'POST',
