@@ -279,11 +279,7 @@ Current Issues
         2.        Server status might show outdated information if API data is cached.
 
 
-8. Future Development
-
-
-
-9. Additional Notes
+8. Additional Notes
 
 
 File Structure
