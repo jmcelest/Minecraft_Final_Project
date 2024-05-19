@@ -15,7 +15,6 @@ function getServerInfo() {
     fetch("https://minecraft-final-project.vercel.app/servers")
     .then((res) => res.json())
     .then((res) => {
-        console.log(res);
         for (let i = 0; i < res.length; i++) {
             var div = document.createElement("div");
             div.setAttribute("id", `server${res[i].id}`);
