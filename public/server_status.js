@@ -27,7 +27,7 @@ function getServerInfo() {
     .then((res) => res.json())
     .then((res) => {
         var count = 0;
-        while(count < 10) {
+        for (let i = 0; i < res.length; i++) {
             if (Boolean(checkValidation(res[i].ip_address))) {
                 var div = document.createElement("div");
                 div.setAttribute("id", `server${res[i].id}`);
@@ -41,6 +41,7 @@ function getServerInfo() {
                 getServerStatus(res[i].ip_address, res[i].id);
                 count += 1;
             }
+            if (count == 10) break;
         }
     });
 }
