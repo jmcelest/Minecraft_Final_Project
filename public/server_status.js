@@ -25,7 +25,7 @@ function getServerInfo() {
             h1.setAttribute("id", res[i].id);
             h1.innerHTML = `Server Status for ${res[i].server_name}: `;
             div.appendChild(h1);
-            console.getServerStatus(res[i].ip_address, res[i].id);
+            console.log(getServerStatus(res[i].ip_address, res[i].id));
         }
     });
 }
