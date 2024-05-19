@@ -27,10 +27,9 @@ app.get('/servers', async (req, res) => {
 });
 
 app.post('/server', express.json(), async (req, res) => {
-    const newData = req.body;
-    var ip_address = newData.ip_address;
-    var server_name = newData.server_name;
-    var country = newData.country;
+    var ip_address = req.body.ip_address;
+    var server_name = req.body.server_name;
+    var country = req.body.country;
 
     const { data, error } = await supabase
         .from('Server')
