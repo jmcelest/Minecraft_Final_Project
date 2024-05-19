@@ -36,7 +36,7 @@ async function createServer() {
         body: JSON.stringify({
             "server_name": `${document.getElementById("serverName").value}`,
             "ip_address": `${document.getElementById("ipAddress").value}`,
-            "state": `${document.getElementById("region").value}`,
+            "country": `${document.getElementById("region").value}`,
         }),
         headers: {
             "Content-type": "application/json"
