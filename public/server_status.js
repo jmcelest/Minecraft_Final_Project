@@ -16,6 +16,11 @@ function getServerInfo() {
     .then((res) => res.json())
     .then((res) => {
         for (let i = 0; i < res.length; i++) {
+            const preExistingList = document.getElementById(`server${res[i].id}`)
+            if(preExistingList) {
+                preExistingList.remove()
+            }
+            
             var div = document.createElement("div");
             div.setAttribute("id", `server${res[i].id}`);
             div.setAttribute("class", "container");
@@ -26,11 +31,6 @@ function getServerInfo() {
             h1.innerHTML = `Server Status for ${res[i].server_name}: `;
             div.appendChild(h1);
             getServerStatus(res[i].ip_address, res[i].id);
-
-            const preExistingList = document.getElementById(`server${res[i].id}`)
-            if(preExistingList) {
-                preExistingList.remove()
-            }
         }
     });
 }
