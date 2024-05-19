@@ -21,9 +21,10 @@ app.get('/servers', async (req, res) => {
         .select('*');
     if (error) {
         console.error('Error fetching data:', error);
-        return res.status(500).json({ error: 'Internal server error' });
+        res.send(error);
+    } else {
+        res.send(data);
     }
-    res.send(data);
 });
 
 app.post('/server', express.json(), async (req, res) => {
