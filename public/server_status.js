@@ -26,6 +26,11 @@ function getServerInfo() {
             h1.innerHTML = `Server Status for ${res[i].server_name}: `;
             div.appendChild(h1);
             getServerStatus(res[i].ip_address, res[i].id);
+
+            const preExistingList = document.getElementById(`server${res[i].id}`)
+            if(preExistingList) {
+                preExistingList.remove()
+            }
         }
     });
 }
