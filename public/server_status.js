@@ -46,7 +46,6 @@ async function createServer() {
     .then((res) => {
         
     })
-    await getServerInfo();
 }
 
 window.onload = getServerInfo();
