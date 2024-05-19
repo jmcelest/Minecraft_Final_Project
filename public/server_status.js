@@ -30,4 +30,23 @@ function getServerInfo() {
     });
 }
 
+async function createServer() {
+    await fetch("https://minecraft-final-project.vercel.app/server", {
+        method: 'POST',
+        body: JSON.stringify({
+            "server_name": `${document.getElementById("serverName").value}`,
+            "ip_address": `${document.getElementById("ipAddress").value}`,
+            "state": `${document.getElementById("region").value}`,
+        }),
+        headers: {
+            "Content-type": "application/json"
+        }
+    })
+    .then((res) => res.json())
+    .then((res) => {
+        
+    })
+    await getServerInfo();
+}
+
 window.onload = getServerInfo();
