@@ -15,8 +15,8 @@ function checkValidation(server) {
     fetch("https://api.mcsrvstat.us/3/" + server)
     .then((res) => res.json())
     .then((res) => {
-        console.log(res);
         if(res.ip == "127.0.0.1") {
+            alert("The IP Address is Invalid");
             return false;
         }
     });
