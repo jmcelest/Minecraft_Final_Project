@@ -19,6 +19,8 @@ function checkValidation(server) {
         if(res.ip == "127.0.0.1") {
             alert("The IP Address is Invalid");
             return false;
+        } else {
+            return true;
         }
     });
 }
