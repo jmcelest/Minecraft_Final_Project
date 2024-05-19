@@ -16,11 +16,6 @@ function getServerInfo() {
     .then((res) => res.json())
     .then((res) => {
         for (let i = 0; i < res.length; i++) {
-            const preExistingList = document.getElementById(`server${res[i].id}`)
-            if(preExistingList) {
-                preExistingList.remove()
-            }
-            
             var div = document.createElement("div");
             div.setAttribute("id", `server${res[i].id}`);
             div.setAttribute("class", "container");
