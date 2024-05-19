@@ -3,11 +3,17 @@ function getServerStatus(server, element) {
     .then((res) => res.json())
     .then((res) => {
         console.log(res);
-        if(res.online == true) {
-            document.getElementById(element).innerHTML += "Online";
-        }
-        else {
-            document.getElementById(element).innerHTML += "Offline";
+        if(res.ip == "127.0.0.1") {
+            var div = document.getElementById(`server${element}`);
+            div.remove();
+            return;
+        } else {
+            if(res.online == true) {
+                document.getElementById(element).innerHTML += "Online";
+            }
+            else {
+                document.getElementById(element).innerHTML += "Offline";
+            }
         }
     });
 }
