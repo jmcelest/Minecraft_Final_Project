@@ -14,8 +14,8 @@ function getServerStatus(server, element) {
 var host = window.location.origin;
 console.log(host)
 
-async function getServerInfo() {
-    await fetch("https://minecraft-final-project.vercel.app/servers")
+function getServerInfo() {
+    fetch("https://minecraft-final-project.vercel.app/servers")
     .then((res) => res.json())
     .then((res) => {
         console.log(res);
