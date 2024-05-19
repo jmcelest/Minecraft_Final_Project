@@ -11,6 +11,10 @@ const supabaseUrl = 'https://sasqxauusupdslvfcziq.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNhc3F4YXV1c3VwZHNsdmZjemlxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ1MDgwMjcsImV4cCI6MjAzMDA4NDAyN30.D0Wta7Oe4m81fnF0rCLkho0i_KYM8Ab19QyJzfjhiqk';
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
+app.get('/', (req, res) => {
+    res.sendFile('public/Home.html', { root: __dirname })
+})
+
 app.get('/servers', async (req, res) => {
     const { data, error } = await supabase
         .from('Server')
