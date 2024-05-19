@@ -2,6 +2,7 @@ function getServerStatus(server, element) {
     fetch("https://api.mcsrvstat.us/3/" + server)
     .then((res) => res.json())
     .then((res) => {
+        console.log(res);
         if(res.online == true) {
             document.getElementById(element).innerHTML += "Online";
         }
@@ -25,7 +26,7 @@ function getServerInfo() {
             h1.setAttribute("id", res[i].id);
             h1.innerHTML = `Server Status for ${res[i].server_name}: `;
             div.appendChild(h1);
-            console.log(getServerStatus(res[i].ip_address, res[i].id));
+            getServerStatus(res[i].ip_address, res[i].id);
         }
     });
 }
