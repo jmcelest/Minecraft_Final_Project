@@ -58,6 +58,7 @@ async function createServer() {
         .then((res) => {
             
         })
+        alert("Your server is now on the list!");
     }
 }
 
