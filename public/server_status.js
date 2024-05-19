@@ -2,18 +2,22 @@ function getServerStatus(server, element) {
     fetch("https://api.mcsrvstat.us/3/" + server)
     .then((res) => res.json())
     .then((res) => {
+        if(res.online == true) {
+            document.getElementById(element).innerHTML += "Online";
+        }
+        else {
+            document.getElementById(element).innerHTML += "Offline";
+        }
+    });
+}
+
+function checkValidation(server) {
+    fetch("https://api.mcsrvstat.us/3/" + server)
+    .then((res) => res.json())
+    .then((res) => {
         console.log(res);
         if(res.ip == "127.0.0.1") {
-            var div = document.getElementById(`server${element}`);
-            div.remove();
-            return;
-        } else {
-            if(res.online == true) {
-                document.getElementById(element).innerHTML += "Online";
-            }
-            else {
-                document.getElementById(element).innerHTML += "Offline";
-            }
+            return false;
         }
     });
 }
@@ -23,16 +27,18 @@ function getServerInfo() {
     .then((res) => res.json())
     .then((res) => {
         for (let i = 0; i < res.length; i++) {
-            var div = document.createElement("div");
-            div.setAttribute("id", `server${res[i].id}`);
-            div.setAttribute("class", "container");
-            document.getElementById("server-container").appendChild(div);
+            if (Boolean(checkValidation(res[i].ip_address))) {
+                var div = document.createElement("div");
+                div.setAttribute("id", `server${res[i].id}`);
+                div.setAttribute("class", "container");
+                document.getElementById("server-container").appendChild(div);
 
-            var h1 = document.createElement('h1');
-            h1.setAttribute("id", res[i].id);
-            h1.innerHTML = `Server Status for ${res[i].server_name}: `;
-            div.appendChild(h1);
-            getServerStatus(res[i].ip_address, res[i].id);
+                var h1 = document.createElement('h1');
+                h1.setAttribute("id", res[i].id);
+                h1.innerHTML = `Server Status for ${res[i].server_name}: `;
+                div.appendChild(h1);
+                getServerStatus(res[i].ip_address, res[i].id);
+            }
         }
     });
 }
