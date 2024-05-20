@@ -83,3 +83,9 @@ body {
 button:hover {
     cursor: pointer;    
 }
+
+.chart-container {
+    background-color: #f0f0f0; /* Adjust as needed for background color */
+    padding: 10px;
+    width: 600px;
+}
