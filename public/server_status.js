@@ -42,6 +42,8 @@ function getServerInfo() {
             getServerStatus(res[i].ip_address, res[i].id);
         }
     });
+
+    updateServerStatusChart();
 }
 
 async function createServer() {
@@ -62,6 +64,72 @@ async function createServer() {
     })
     alert("Your server is now on the list!");
     window.location.reload();
+}
+
+// Fetch the server status data from the API and update the chart accordingly
+function updateServerStatusChart() {
+    fetch("https://minecraft-final-project.vercel.app/servers")
+    .then((res) => res.json())
+    .then((res) => {
+        let onlineCount = 0;
+        let offlineCount = 0;
+        let totalServers = res.length;
+        let checkedServers = 0;
+
+        res.forEach(server => {
+            fetch("https://api.mcsrvstat.us/3/" + server.ip_address)
+            .then((serverRes) => serverRes.json())
+            .then((serverRes) => {
+                if(serverRes.online) {
+                    onlineCount++;
+                } else {
+                    offlineCount++;
+                }
+
+                checkedServers++;
+                // Update the chart data after checking all servers
+                if (checkedServers === totalServers) {
+                    createServerStatusChart(onlineCount, offlineCount);
+                }
+            });
+        });
+    });
+}
+
+// Function to create the server status chart
+function createServerStatusChart(online, offline) {
+    var ctx = document.getElementById('serverStatusChart').getContext('2d');
+    var serverStatusChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Online Servers', 'Offline Servers'],
+            datasets: [{
+                label: 'Server Status',
+                data: [online, offline],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Server Status'
+                }
+            }
+        }
+    });
 }
 
 window.onload = getServerInfo();
