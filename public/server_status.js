@@ -11,18 +11,16 @@ function getServerStatus(server, element) {
     });
 }
 
-function checkValidation(server) {
+function checkValidation() {
+    var server = document.getElementById("ipAddress").value;
     fetch("https://api.mcsrvstat.us/3/" + server)
     .then((res) => res.json())
     .then((res) => {
         console.log(res.ip);
         if(res.ip == "127.0.0.1") {
             alert("The IP Address is Invalid");
-            console.log("false");
-            return false;
         } else {
-            console.log("true");
-            return true;
+            createServer();
         }
     });
 }
@@ -47,26 +45,22 @@ function getServerInfo() {
 }
 
 async function createServer() {
-    console.log("returned:");
-    console.log(Boolean(checkValidation(document.getElementById("ipAddress").value)));
-    if (Boolean(checkValidation(document.getElementById("ipAddress").value))) {
-        await fetch("https://minecraft-final-project.vercel.app/server", {
-            method: 'POST',
-            body: JSON.stringify({
-                "server_name": `${document.getElementById("serverName").value}`,
-                "ip_address": `${document.getElementById("ipAddress").value}`,
-                "country": `${document.getElementById("region").value}`,
-            }),
-            headers: {
-                "Content-type": "application/json"
-            }
-        })
-        .then((res) => res.json())
-        .then((res) => {
-            
-        })
-        alert("Your server is now on the list!");
-    }
+    await fetch("https://minecraft-final-project.vercel.app/server", {
+        method: 'POST',
+        body: JSON.stringify({
+            "server_name": `${document.getElementById("serverName").value}`,
+            "ip_address": `${document.getElementById("ipAddress").value}`,
+            "country": `${document.getElementById("region").value}`,
+        }),
+        headers: {
+            "Content-type": "application/json"
+        }
+    })
+    .then((res) => res.json())
+    .then((res) => {
+        
+    })
+    alert("Your server is now on the list!");
 }
 
 window.onload = getServerInfo();
