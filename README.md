@@ -11,7 +11,7 @@ Developer Manual
 
 Project Overview
 
-This project is a web application designed to monitor and display the status of various Minecraft servers. The application is developed using HTML, CSS, JavaScript, and Node.js with Express and Supabase for backend services.
+This project is a web application designed to monitor and display the status of various Minecraft servers. The application is developed using HTML, CSS, JavaScript, and Node.js with Express and Supabase for backend services. We have deployed this application on Vercel, which can be accessed using this link: https://minecraft-final-project.vercel.app/
 
 
 Purpose of the Manual
@@ -114,50 +114,13 @@ The Minecraft server status is fetched using the MCSrvStat API. This API provide
 
 Fetching Server Status
 
-In the script.js file, the getServerStatus function fetches server status using the API:
-
-
-function getServerStatus(server, element) {
-
-    fetch("https://api.mcsrvstat.us/3/" + server)
-
-    .then((res) => res.json())
-
-    .then((res) => {
-
-        if (res.online) {
-
-            document.getElementById(element).innerHTML += "Online";
-
-        } else {
-
-            document.getElementById(element).innerHTML += "Offline";
-
-        }
-
-    });
-
-}
+In the script.js file, the getServerStatus function fetches server status using the API.
 
 
 Fetching Server Information
 
-The getServerInfo function calls getServerStatus for each server:
+The getServerInfo function calls getServerStatus for each server.
 
-
-function getServerInfo() {
-
-    getServerStatus("mc.hypixel.net", "1");
-
-    getServerStatus("play.aesthetiful.com", "2");
-
-    getServerStatus("mcsl.cosmosmc.org", "3");
-
-    getServerStatus("mcsugars.com", "4");
-
-    getServerStatus("mc.jahcraft.net", "5");
-
-}
 
 
 Webpage Descriptions
@@ -190,6 +153,9 @@ Nav_bar.html:
 
         •        Provides a navigation bar for easy access to different sections of the website.
 
+Footer.html
+
+        •        Provides a consistent footer for all main pages of the website.
 
 5. Known Bugs
 
