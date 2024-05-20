@@ -11,7 +11,7 @@ Developer Manual
 
 Project Overview
 
-This project is a web application designed to monitor and display the status of various Minecraft servers. The application is developed using HTML, CSS, JavaScript, and Node.js with Express and Supabase for backend services. We have deployed this application on Vercel, which can be accessed using this link: https://minecraft-final-project.vercel.app/
+This project is a web application designed to monitor and display the status of various Minecraft servers. The application is developed using HTML, CSS, JavaScript, and Node.js with Express and Supabase for backend services. We have deployed our project on Vercel, which can be accessed using this link: https://minecraft-final-project.vercel.app/
 
 
 Purpose of the Manual
@@ -40,6 +40,7 @@ Step-by-Step Installation Guide:
                 You cana access the application by opening any browser and typing "http://localhost:3000"
                 At the moment there are not tests to run in order to see if the application is working other than opening the server status page. 
 
+To start our application, use "npm start".
 
 3. API Documentation
 Overview
