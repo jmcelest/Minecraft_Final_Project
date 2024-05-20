@@ -61,6 +61,7 @@ async function createServer() {
         
     })
     alert("Your server is now on the list!");
+    window.location.reload();
 }
 
 window.onload = getServerInfo();
