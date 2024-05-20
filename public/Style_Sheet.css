@@ -51,6 +51,12 @@ body {
     border: 2px solid black;
     width: 100%
 }
+
+#mySlider {
+    min-width: 40px;
+    min-height: 40px;
+}
+
 /*option for sidebar*/
 #sideBar {
     text-align: left;
