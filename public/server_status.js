@@ -18,8 +18,10 @@ function checkValidation(server) {
         console.log(res.ip);
         if(res.ip == "127.0.0.1") {
             alert("The IP Address is Invalid");
+            console.log("false");
             return false;
         } else {
+            console.log("true");
             return true;
         }
     });
@@ -45,6 +47,7 @@ function getServerInfo() {
 }
 
 async function createServer() {
+    console.log("returned:");
     console.log(Boolean(checkValidation(document.getElementById("ipAddress").value)));
     if (Boolean(checkValidation(document.getElementById("ipAddress").value))) {
         await fetch("https://minecraft-final-project.vercel.app/server", {
