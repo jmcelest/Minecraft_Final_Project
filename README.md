@@ -40,7 +40,7 @@ Step-by-Step Installation Guide:
                 You cana access the application by opening any browser and typing "http://localhost:3000"
                 At the moment there are not tests to run in order to see if the application is working other than opening the server status page. 
 
-To start our application, use "npm start".
+To run our application on a server, use "npm start".
 
 3. API Documentation
 Overview
